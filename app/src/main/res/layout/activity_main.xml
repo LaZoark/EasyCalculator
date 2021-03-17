@@ -7,29 +7,27 @@
     tools:context=".MainActivity">
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/radioGroup1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:onClick="onRadioButtonClicked"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/plusMinus"
             android:layout_width="191dp"
             android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
+            android:checked="false"
             android:text="@string/mode"
             android:textAlignment="textStart" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/multiplyDivide"
             android:layout_width="191dp"
             android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
             android:text="@string/mode2"
             android:textAlignment="textStart" />
     </RadioGroup>
@@ -47,43 +45,59 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <NumberPicker
-            android:id="@+id/editView"
+        <EditText
+            android:id="@+id/argv1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:inputType="number"
+            android:textSize="80sp" />
 
         <RadioGroup
+            android:id="@+id/radioGroup2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:onClick="onRadioButtonClicked">
+            android:layout_height="match_parent">
 
             <RadioButton
                 android:id="@+id/radioButton_up"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="+" />
+                android:text="@string/upper" />
 
             <RadioButton
                 android:id="@+id/radioButton_down"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="-" />
+                android:text="@string/lower" />
 
         </RadioGroup>
 
-        <NumberPicker
-            android:id="@+id/editView2"
+        <EditText
+            android:id="@+id/argv2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:inputType="number"
+            android:textSize="80sp" />
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="= 0"
+            android:text="@string/answer"
             android:textSize="80sp" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="138dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

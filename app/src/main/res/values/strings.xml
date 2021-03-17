@@ -2,4 +2,7 @@
     <string name="app_name">EasyCalculator_hand_on</string>
     <string name="mode">+ - mode</string>
     <string name="mode2">* / mode</string>
+    <string name="upper">+</string>
+    <string name="answer">= 0</string>
+    <string name="lower">-</string>
 </resources>
