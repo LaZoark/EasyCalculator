@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">EasyCalculator_hand_on</string>
+    <string name="mode">+ - mode</string>
+    <string name="mode2">* / mode</string>
+</resources>
