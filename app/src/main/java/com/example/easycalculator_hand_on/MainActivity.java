@@ -6,7 +6,6 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -18,6 +17,7 @@ public class MainActivity extends AppCompatActivity
     RadioGroup selectOperand;
     EditText b1, b2;
     TextView test, Ans;
+    RadioButton operand1,operand2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +29,12 @@ public class MainActivity extends AppCompatActivity
         selectOperand = (RadioGroup) findViewById(R.id.radioGroup2);
         selectOperand.setOnCheckedChangeListener(this);
         b1 = (EditText) findViewById(R.id.argv1);
-        b1.addTextChangedListener(this);
         b2 = (EditText) findViewById(R.id.argv2);
+        b1.addTextChangedListener(this);
         b2.addTextChangedListener(this);
+        Ans = (TextView) findViewById(R.id.Ans);
+        operand1 = (RadioButton) findViewById(R.id.radioButton_up);
+        operand2 = (RadioButton) findViewById(R.id.radioButton_down);
     }
 
     @Override
@@ -42,31 +45,59 @@ public class MainActivity extends AppCompatActivity
     }
     @Override
     public void afterTextChanged(Editable s) {
+//        EditText blank = (EditText)s;
+//        switch (blank.)
+        test.setText("CHANGE");
+//        if(chooseMode.getCheckedRadioButtonId()==R.id.radioButton_up)
+//        {
+//            test.setText("+");
+//            Ans.setText(Integer.parseInt(b1.getText().toString()) + Integer.parseInt(b2.getText().toString()));
+//        }else
+//        {
+//            test.setText("-");
+//            Ans.setText(Integer.parseInt(b1.getText().toString()) - Integer.parseInt(b2.getText().toString()));
+//        }
     }
     @SuppressLint("NonConstantResourceId")
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
-        RadioGroup method = (RadioGroup) group;
-        Ans = (TextView) findViewById(R.id.textView3);
-        switch (method.getCheckedRadioButtonId()) {
+        switch (group.getCheckedRadioButtonId()) {
             case R.id.plusMinus:
-                switch (method.getCheckedRadioButtonId()) {
-                    case R.id.radioButton_up:
-                        Ans.setText(Integer.parseInt(b1.getText().toString()) + Integer.parseInt(b2.getText().toString()));
-                        break;
-                    case R.id.radioButton_down:
-                        Ans.setText(Integer.parseInt(b1.getText().toString()) - Integer.parseInt(b2.getText().toString()));
-                        break;
-                }break;
+                test.setText("plus minus");
+                operand1.setText("+");
+                operand2.setText("–");
+                operand1.setClickable(true);
+                operand2.setClickable(true);
+                plusMinus(group);
+                break;
             case R.id.multiplyDivide:
-                switch (method.getCheckedRadioButtonId()) {
+                test.setText("multiply divide");
+                operand1.setText("×");
+                operand2.setText("÷");
+                operand1.setClickable(true);
+                operand2.setClickable(true);
+                switch (group.getCheckedRadioButtonId()) {
                     case R.id.radioButton_up:
+                        test.setText("*");
                         Ans.setText(Integer.parseInt(b1.getText().toString()) * Integer.parseInt(b2.getText().toString()));
                         break;
                     case R.id.radioButton_down:
+                        test.setText("/");
                         Ans.setText(Integer.parseInt(b1.getText().toString()) / Integer.parseInt(b2.getText().toString()));
                         break;
                 }break;
+        }
+    }
+    public void plusMinus(RadioGroup group){
+        switch (group.getCheckedRadioButtonId()) {
+            case R.id.radioButton_up:
+                test.setText("+");
+                Ans.setText(Integer.parseInt(b1.getText().toString()) + Integer.parseInt(b2.getText().toString()));
+                break;
+            case R.id.radioButton_down:
+                test.setText("-");
+                Ans.setText(Integer.parseInt(b1.getText().toString()) - Integer.parseInt(b2.getText().toString()));
+                break;
         }
     }
 
