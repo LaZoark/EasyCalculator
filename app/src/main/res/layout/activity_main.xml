@@ -47,52 +47,59 @@
 
         <EditText
             android:id="@+id/argv1"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="0"
             android:inputType="number"
             android:text="0"
-            android:textSize="80sp" />
+            android:textSize="50sp" />
 
         <RadioGroup
             android:id="@+id/radioGroup2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <RadioButton
                 android:id="@+id/radioButton_up"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="false"
                 android:text="@string/upper"
-                android:textSize="36sp" />
+                android:textSize="24sp" />
 
             <RadioButton
                 android:id="@+id/radioButton_down"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="false"
                 android:text="@string/lower"
-                android:textSize="36sp" />
+                android:textSize="24sp" />
 
         </RadioGroup>
 
         <EditText
             android:id="@+id/argv2"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="0"
             android:inputType="number"
             android:text="0"
-            android:textSize="80sp" />
+            android:textSize="50sp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="="
+            android:textSize="50sp" />
 
         <TextView
             android:id="@+id/Ans"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/answer"
-            android:textSize="80sp" />
+            android:textSize="50sp" />
 
     </LinearLayout>
 
