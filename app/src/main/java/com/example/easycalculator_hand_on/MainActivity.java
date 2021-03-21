@@ -17,7 +17,8 @@ public class MainActivity extends AppCompatActivity
     RadioGroup selectOperand;
     EditText b1, b2;
     TextView test, Ans;
-    RadioButton operand1,operand2;
+    RadioButton operand1, operand2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,34 +41,42 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
     }
+
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
     }
+
+    @SuppressLint({"NonConstantResourceId", "SetTextI18n"})
     @Override
     public void afterTextChanged(Editable s) {
         test.setText("CHANGE");
-//        if(chooseMode.getCheckedRadioButtonId() == R.id.plusMinus) {
-//            test.setText("+");
-//            Ans.setText(Float.toString(Float.valueOf(b1.getText().toString()) + Float.valueOf(b2.getText().toString())));
-//        }else if(chooseMode.getCheckedRadioButtonId() == R.id.multiplyDivide){
-//
-//            test.setText("×");
-//            Ans.setText(Float.toString(Float.valueOf(b1.getText().toString()) * Float.valueOf(b2.getText().toString())));
-//        }
-//        if(chooseMode.getCheckedRadioButtonId() == R.id.plusMinus) {
-//            test.setText("-");
-//            Ans.setText(Float.toString(Float.valueOf(b1.getText().toString()) - Float.valueOf(b2.getText().toString())));
-//        }else if(chooseMode.getCheckedRadioButtonId() == R.id.multiplyDivide) {
-//            test.setText("÷");
-//            try {
-//                Ans.setText(Float.toString(Float.valueOf(b1.getText().toString()) / Float.valueOf(b2.getText().toString())));
-//            }
-//            catch (Exception e){
-//                test.setText((CharSequence) e);
-//            }
-//        }
+        switch (selectOperand.getCheckedRadioButtonId()) {
+            case R.id.radioButton_up:
+                if (chooseMode.getCheckedRadioButtonId() == R.id.plusMinus) {
+                    test.setText("+");
+                    Ans.setText(Float.toString(Float.parseFloat(b1.getText().toString()) + Float.parseFloat(b2.getText().toString())));
+                } else if (chooseMode.getCheckedRadioButtonId() == R.id.multiplyDivide) {
+                    test.setText("×");
+                    Ans.setText(Float.toString(Float.parseFloat(b1.getText().toString()) * Float.parseFloat(b2.getText().toString())));
+                }
+                break;
+            case R.id.radioButton_down:
+                if (chooseMode.getCheckedRadioButtonId() == R.id.plusMinus) {
+                    test.setText("-");
+                    Ans.setText(Float.toString(Float.parseFloat(b1.getText().toString()) - Float.parseFloat(b2.getText().toString())));
+                } else if (chooseMode.getCheckedRadioButtonId() == R.id.multiplyDivide) {
+                    test.setText("÷");
+                    try {
+                        Ans.setText(Float.toString(Float.parseFloat(b1.getText().toString()) / Float.parseFloat(b2.getText().toString())));
+                    } catch (Exception e) {
+                        test.setText((CharSequence) e);
+                    }
+                }
+                break;
+        }
     }
-    @SuppressLint("NonConstantResourceId")
+
+    @SuppressLint({"NonConstantResourceId", "SetTextI18n"})
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         switch (group.getCheckedRadioButtonId()) {
@@ -86,25 +95,23 @@ public class MainActivity extends AppCompatActivity
                 operand2.setClickable(true);
                 break;
             case R.id.radioButton_up:
-                if(chooseMode.getCheckedRadioButtonId() == R.id.plusMinus) {
+                if (chooseMode.getCheckedRadioButtonId() == R.id.plusMinus) {
                     test.setText("+");
-                    Ans.setText(Float.toString(Float.valueOf(b1.getText().toString()) + Float.valueOf(b2.getText().toString())));
-                }else if(chooseMode.getCheckedRadioButtonId() == R.id.multiplyDivide){
-
+                    Ans.setText(Float.toString(Float.parseFloat(b1.getText().toString()) + Float.parseFloat(b2.getText().toString())));
+                } else if (chooseMode.getCheckedRadioButtonId() == R.id.multiplyDivide) {
                     test.setText("×");
-                    Ans.setText(Float.toString(Float.valueOf(b1.getText().toString()) * Float.valueOf(b2.getText().toString())));
+                    Ans.setText(Float.toString(Float.parseFloat(b1.getText().toString()) * Float.parseFloat(b2.getText().toString())));
                 }
                 break;
             case R.id.radioButton_down:
-                if(chooseMode.getCheckedRadioButtonId() == R.id.plusMinus) {
+                if (chooseMode.getCheckedRadioButtonId() == R.id.plusMinus) {
                     test.setText("-");
-                    Ans.setText(Float.toString(Float.valueOf(b1.getText().toString()) - Float.valueOf(b2.getText().toString())));
-                }else if(chooseMode.getCheckedRadioButtonId() == R.id.multiplyDivide) {
+                    Ans.setText(Float.toString(Float.parseFloat(b1.getText().toString()) - Float.parseFloat(b2.getText().toString())));
+                } else if (chooseMode.getCheckedRadioButtonId() == R.id.multiplyDivide) {
                     test.setText("÷");
                     try {
-                        Ans.setText(Float.toString(Float.valueOf(b1.getText().toString()) / Float.valueOf(b2.getText().toString())));
-                    }
-                    catch (Exception e){
+                        Ans.setText(Float.toString(Float.parseFloat(b1.getText().toString()) / Float.parseFloat(b2.getText().toString())));
+                    } catch (Exception e) {
                         test.setText((CharSequence) e);
                     }
                 }
